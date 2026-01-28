@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: FridgeAI
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/fridgeai
+    username: postgres
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+      format-sql: true
+  flyway:
+    enabled: true
+    validate-on-migrate: false
+  config:
+    import: "optional:file:.env[.properties]"
+
+gemini:
+  api-key: ${GEMINI_API_KEY}
+  model: "gemini-2.5-flash"
